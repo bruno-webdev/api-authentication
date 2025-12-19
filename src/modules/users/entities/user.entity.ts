@@ -10,6 +10,9 @@ export class User {
   id: string;
 
   @Column({ nullable: false })
+  name: string;
+
+  @Column({ nullable: false })
   username: string;
 
   // Unique with deleted at
