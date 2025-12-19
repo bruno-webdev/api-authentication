@@ -3,7 +3,7 @@ import { databaseCredentials } from "./database.credentials";
 
 export const databaseConfig = (): TypeOrmModuleOptions => ({
   ...databaseCredentials(),
-  entities: [__dirname + '/../**/*.entity.{js,ts}'],
+  entities: [__dirname + '/../modules/**/entities/*.entity.{js,ts}'],
   synchronize: process.env.NODE_ENV === 'development',
   logging: process.env.NODE_ENV === 'development',
 });
