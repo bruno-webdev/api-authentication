@@ -12,7 +12,7 @@ export class AuditLog {
   user: User;
 
   @OneToOne(() => Resource, { nullable: false, onDelete: 'CASCADE', onUpdate: 'CASCADE' })
-  @JoinColumn({ name: 'resource_id', })
+  @JoinColumn({ name: 'resource_id' })
   resource: Resource;
 
   @Column({ nullable: true, type: 'jsonb' })

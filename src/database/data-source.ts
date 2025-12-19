@@ -1,9 +1,16 @@
+import 'dotenv/config';
 import { DataSource } from "typeorm";
-import { databaseCredentials } from "./database.credentials";
 
 export default new DataSource({
-  ...databaseCredentials(),
-
-  entities: [__dirname + '/../**/*.entity.{js,ts}'],
-  migrations: [__dirname + '/migrations/*.{js,ts}'],
+  type: 'postgres',
+  host: process.env.DATABASE_HOST,
+  port: +(process.env.DATABASE_PORT ?? '5432'),
+  username: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE_NAME,
+  entities: ['dist/**/*.entity.js'],
+  migrations: ['dist/database/migrations/*.js'],
+  migrationsRun: false,
+  migrationsTableName: 'migrations',
+  migrationsTransactionMode: 'all',
 });
