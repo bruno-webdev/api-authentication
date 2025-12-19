@@ -1,5 +1,3 @@
-import { User } from "src/modules/users/entities/user.entity";
-import * as bcrypt from "bcrypt";
 import { DataSource } from "typeorm";
 import { Resource } from "src/modules/resource/entities/resource.entity";
 
